@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yanuar & Tria</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
     <!-- Google Fonts -->
@@ -26,10 +27,10 @@
     <!-- Halaman Awal -->
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
         <main>
-            <h4>Kepada Bapak/Ibu/Saudara/i, {!! $nama !!} Di {{$alamat}}</h4>
+            <h4>Kepada Bapak/Ibu/Saudara/i, {{$nama}} Di {{$alamat}}</h4>
             <br>
             <p>Tunjukkan Qr Untuk Check In</p>
-                <p>{!! $qrcode !!}</p>
+                <p>{{ $qrcode}}</p>
             
             <h1>Yanuar Ary Syahputra & Tria Mailan Karemoi</h1>
             <p>Akan melangsungkan resepsi pernikahan dalam:</p>

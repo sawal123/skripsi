@@ -14,7 +14,7 @@
   <meta name="author" content="" />
 
   <title>BukuTamu</title>
-
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{{ asset('Template/css/bootstrap.css') }}" />

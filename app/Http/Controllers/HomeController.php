@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Tamu;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class HomeController extends Controller
 {
@@ -26,14 +29,18 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function qr(Request $request){
+    public function qr(Request $request)
+    {
         dd($request->all());
     }
 
-    public function undangan()
-    {
-        return view('undanganku', compact('nama','alamat') ,['qrcode'=>$qrcode]);
-    }
-
     
+
+    public function addTamu($nama, $alamat){
+        $tamu = Tamu::create([
+            'nama'=>$nama,
+            'alamat'=>$alamat
+        ]);
+        return redirect()->back()->with('success', 'Tamu Telah Tersimpan');
+    }
 }

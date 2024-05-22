@@ -1,6 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\komentar;
+use App\Http\Controllers\ScanController;
+use App\Http\Controllers\SendUndanganController;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
@@ -15,22 +20,25 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 |
 */
 
-Route::get('/undanganku/{nama}/{alamat}', function ($nama , $alamat) {
+// Route::get('/undanganku/{nama}/{alamat}', function ($nama , $alamat) {
 
-    $qrcode=QrCode::size(100)->generate($nama . $alamat);
+//     $qrcode=QrCode::size(100)->generate($nama . $alamat);
 
-    return view('undanganku', compact('nama','alamat') ,['qrcode'=>$qrcode]);
-});
+//     return view('undanganku', compact('nama','alamat') ,['qrcode'=>$qrcode]);
+// });
 
 Route::get('/', function () {
     return view('master');
 });
+Route::get('/undanganku/{nama}/{alamat}', [SendUndanganController::class, 'undangan'])->name('undanganku');
 
 
 Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/komentar', [App\Http\Controllers\komentar::class, 'index'])->name('komentar');
-Route::get('/scan', [App\Http\Controllers\ScanController::class, 'index'])->name('scan');
-Route::get('/undanganku/Hafizh/Lampung', [App\Http\Controllers\HomeController::class, 'undangan'])->name('undanganku');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/komentar', [komentar::class, 'index'])->name('komentar');
+Route::get('/scan', [ScanController::class, 'index'])->name('scan');
+
+
+Route::get('/add-tamu/{nama}/{alamat}', [HomeController::class, 'addTamu']);
