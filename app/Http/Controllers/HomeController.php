@@ -34,4 +34,6 @@ class HomeController extends Controller
     {
         return view('undanganku', compact('nama','alamat') ,['qrcode'=>$qrcode]);
     }
+
+    
 }

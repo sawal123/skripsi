@@ -118,10 +118,10 @@
           
           <li class="nav-header">MASTER</li>
           <li class="nav-item">
-            <a href="{{ route('bukutamu')}}" class="nav-link">
+            <a href="{{ route('scan')}}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Buku Tamu
+                Scan QR Code
                 <span class="badge badge-info right"></span>
               </p>
             </a>
@@ -186,7 +186,7 @@
               <div class="icon">
                 <i class="fas fa-users"></i>
               </div>
-              <a href="{{ route('bukutamu')}}" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('scan')}}" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -197,7 +197,7 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
+</div>  
 <!-- ./wrapper -->
 
 <!-- jQuery -->

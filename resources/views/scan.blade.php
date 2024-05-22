@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Buku Tamu</title>
+  <title>Scan QR Code</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
+<div class="container-fluid">
+    <a class="navbar-brand">Scan QR Code</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,16 +36,35 @@
         </li>
         </ul>
     </div>
-  </div>
+</div>
 </nav>
-<!-- PAGE NOT FOUND -->
-
-                <div class="img-box text-center mt-3">
-
-                    <img src="{{ asset('asetkomen/img/404.jpg') }}" width="35%" alt="">
-                    <h1>SORRY WERE BACK</h1>
-                </div>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-md-5 mx-auto">
+      <div id="reader" width="600px"></div>
+    </div>
+  </div>
 </div>
-</div>
+
 </body>
+        <script src="https://unpkg.com/html5-qrcode" type="text/javascript"> </script>
+        <script>
+                    function onScanSuccess(decodedText, decodedResult) {
+                    // handle the scanned code as you like, for example:
+                    console.log(`Code matched = ${decodedText}`, decodedResult);
+                  }
+
+                  function onScanFailure(error) {
+                    // handle scan failure, usually better to ignore and keep scanning.
+                    // for example:
+                    //console.warn(`Code scan error = ${error}`);
+                  }
+
+                  let html5QrcodeScanner = new Html5QrcodeScanner(
+                    "reader",
+                    { fps: 10, qrbox: {width: 250, height: 250} },
+                    /* verbose= */ false);
+                  html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+        </script>
+
 </html>

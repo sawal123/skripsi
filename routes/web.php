@@ -32,5 +32,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/komentar', [App\Http\Controllers\komentar::class, 'index'])->name('komentar');
-Route::get('/bukutamu', [App\Http\Controllers\bukutamu::class, 'index'])->name('bukutamu');
+Route::get('/scan', [App\Http\Controllers\ScanController::class, 'index'])->name('scan');
 Route::get('/undanganku/Hafizh/Lampung', [App\Http\Controllers\HomeController::class, 'undangan'])->name('undanganku');
